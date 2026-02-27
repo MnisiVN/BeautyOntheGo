@@ -1,87 +1,93 @@
-# Active Context: Next.js Starter Template
+# Active Context: GlowUp Beauty Booking App
 
 ## Current State
 
-**Template Status**: ✅ Ready for development
+**App Status**: ✅ Fully Built & Deployed
 
-The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. It's ready for AI-assisted expansion to build any type of application.
+The app is a complete beauty specialist booking platform called **GlowUp** - "Beauty at Your Doorstep". Built with Next.js 16, TypeScript, Tailwind CSS 4, Zustand for state management, and Leaflet for maps.
 
 ## Recently Completed
 
-- [x] Base Next.js 16 setup with App Router
-- [x] TypeScript configuration with strict mode
-- [x] Tailwind CSS 4 integration
-- [x] ESLint configuration
-- [x] Memory bank documentation
-- [x] Recipe system for common features
+- [x] Complete beauty booking mobile app (GlowUp)
+- [x] Client-facing features: home, browse, map, bookings, profile
+- [x] Specialist dashboard: manage bookings, confirm/decline, earnings
+- [x] Full booking flow: service selection → date/time → address → confirmation
+- [x] Payment page: card, mobile money, bank transfer
+- [x] Map view with Leaflet markers for specialists
+- [x] Search & filter: by category, rating, price, availability
+- [x] Notifications system
+- [x] Reviews & ratings
+- [x] Zustand state management
+- [x] Mock data with 6 specialists, bookings, reviews, notifications
 
-## Current Structure
+## App Architecture
 
-| File/Directory | Purpose | Status |
-|----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
-| `.kilocode/` | AI context & recipes | ✅ Ready |
-
-## Current Focus
-
-The template is ready. Next steps depend on user requirements:
-
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
-
-## Quick Start Guide
-
-### To add a new page:
-
-Create a file at `src/app/[route]/page.tsx`:
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
+```
+src/
+├── app/
+│   ├── page.tsx                          # Home page (client)
+│   ├── browse/page.tsx                   # Search & filter specialists
+│   ├── map/page.tsx                      # Map view with markers
+│   ├── bookings/page.tsx                 # Client bookings list
+│   ├── notifications/page.tsx            # Notifications
+│   ├── profile/page.tsx                  # Client profile
+│   ├── specialist/[id]/page.tsx          # Specialist profile
+│   ├── booking/[specialistId]/page.tsx   # Booking flow (4 steps)
+│   ├── booking-confirmation/[id]/page.tsx # Booking sent confirmation
+│   ├── payment/[bookingId]/page.tsx      # Payment page
+│   ├── review/[bookingId]/page.tsx       # Leave review
+│   └── specialist-dashboard/
+│       ├── page.tsx                      # Specialist dashboard
+│       ├── bookings/page.tsx             # All bookings management
+│       ├── notifications/page.tsx        # Specialist notifications
+│       └── profile/page.tsx             # Specialist profile management
+├── components/
+│   ├── BottomNav.tsx                     # Mobile bottom navigation
+│   ├── MapView.tsx                       # Leaflet map component
+│   ├── SpecialistCard.tsx                # Specialist listing card
+│   └── ui/
+│       ├── Badge.tsx
+│       ├── Button.tsx
+│       └── StarRating.tsx
+└── lib/
+    ├── types.ts                          # TypeScript interfaces
+    ├── mock-data.ts                      # Mock specialists, bookings, etc.
+    ├── store.ts                          # Zustand global state
+    └── utils.ts                          # Helper functions
 ```
 
-### To add components:
+## Key Features
 
-Create `src/components/` directory and add components:
-```tsx
-// src/components/ui/Button.tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
+### Client Features
+- **Home**: Personalized greeting, category grid, featured specialists, promo banner
+- **Browse**: Search by name/service, filter by category/rating/price/availability, sort options
+- **Map**: Interactive Leaflet map with specialist markers, click to view details
+- **Booking Flow**: 4-step wizard (service → date/time → address → confirm)
+- **Bookings**: View all bookings with status, pay for confirmed bookings, leave reviews
+- **Notifications**: Real-time notification center with read/unread states
+- **Profile**: User stats, settings menu, switch to specialist mode
 
-### To add a database:
+### Specialist Features
+- **Dashboard**: Pending requests with confirm/decline, earnings overview, upcoming bookings
+- **Bookings**: Full booking management with status filters
+- **Profile**: Bio, services, portfolio, availability schedule, earnings
 
-Follow `.kilocode/recipes/add-database.md`
+### Payment
+- Credit/Debit Card (with card preview animation)
+- Mobile Money
+- Bank Transfer
+- 5% service fee calculation
 
-### To add API routes:
-
-Create `src/app/api/[route]/route.ts`:
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
-
-## Available Recipes
-
-| Recipe | File | Use Case |
-|--------|------|----------|
-| Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
-
-## Pending Improvements
-
-- [ ] Add more recipes (auth, email, etc.)
-- [ ] Add example components
-- [ ] Add testing setup recipe
+## Tech Stack Used
+- Next.js 16 + React 19 + TypeScript
+- Tailwind CSS 4 (pink/purple gradient theme)
+- Zustand (state management)
+- Leaflet + react-leaflet (maps)
+- lucide-react (icons)
+- date-fns, clsx, tailwind-merge
 
 ## Session History
 
 | Date | Changes |
 |------|---------|
-| Initial | Template created with base setup |
+| 2026-02-27 | Built complete GlowUp beauty booking app from scratch |
