@@ -97,12 +97,12 @@ export default function BrowsePage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-24">
       {/* Header */}
-      <div className="bg-white px-5 pt-12 pb-4 sticky top-0 z-40 shadow-sm">
-        <h1 className="font-bold text-gray-900 text-xl mb-3">Find Specialists</h1>
+      <div className="bg-white px-5 pt-10 pb-4 sticky top-0 z-40 shadow-sm">
+        <h1 className="font-bold text-gray-900 text-xl mb-4">Find Specialists</h1>
 
         {/* Search */}
-        <div className="flex gap-2">
-          <div className="flex-1 flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2.5">
+        <div className="flex gap-2 mb-4">
+          <div className="flex-1 flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-3">
             <Search className="w-4 h-4 text-gray-400 flex-shrink-0" />
             <input
               type="text"
@@ -119,7 +119,7 @@ export default function BrowsePage() {
           </div>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className={`relative flex items-center gap-1.5 px-3 py-2.5 rounded-xl font-medium text-sm transition-all ${
+            className={`relative flex items-center gap-1.5 px-4 py-3 rounded-xl font-medium text-sm transition-all ${
               showFilters || activeFilterCount > 0
                 ? "bg-pink-500 text-white"
                 : "bg-gray-100 text-gray-600"
@@ -134,11 +134,11 @@ export default function BrowsePage() {
           </button>
         </div>
 
-        {/* Category pills */}
-        <div className="flex gap-2 mt-3 overflow-x-auto pb-1 scrollbar-hide">
+        {/* Category pills - horizontal scroll */}
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-5 px-5">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+            className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${
               !selectedCategory
                 ? "bg-pink-500 text-white"
                 : "bg-gray-100 text-gray-600"
@@ -152,7 +152,7 @@ export default function BrowsePage() {
               onClick={() =>
                 setSelectedCategory(selectedCategory === cat ? null : cat)
               }
-              className={`flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 selectedCategory === cat
                   ? "bg-pink-500 text-white"
                   : "bg-gray-100 text-gray-600"
@@ -167,7 +167,7 @@ export default function BrowsePage() {
 
       {/* Filter Panel */}
       {showFilters && (
-        <div className="bg-white border-b border-gray-100 px-5 py-4 space-y-4">
+        <div className="bg-white border-b border-gray-100 px-5 py-5 space-y-5">
           {/* Sort */}
           <div>
             <p className="text-sm font-semibold text-gray-700 mb-2">Sort By</p>
@@ -266,8 +266,8 @@ export default function BrowsePage() {
       )}
 
       {/* Results */}
-      <div className="px-5 py-4">
-        <div className="flex items-center justify-between mb-3">
+      <div className="px-5 py-5">
+        <div className="flex items-center justify-between mb-4">
           <p className="text-sm text-gray-500">
             <span className="font-semibold text-gray-900">{filteredSpecialists.length}</span>{" "}
             specialists found
@@ -301,7 +301,7 @@ export default function BrowsePage() {
             </button>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {filteredSpecialists.map((specialist) => (
               <SpecialistCard key={specialist.id} specialist={specialist} />
             ))}

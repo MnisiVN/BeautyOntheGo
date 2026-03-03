@@ -1,7 +1,6 @@
 "use client";
 
-import { MapPin, Clock, CheckCircle, Star } from "lucide-react";
-import { Badge } from "@/components/ui/Badge";
+import { CheckCircle } from "lucide-react";
 import { StarRating } from "@/components/ui/StarRating";
 import { formatCurrency, getCategoryIcon } from "@/lib/utils";
 import type { Specialist } from "@/lib/types";
@@ -53,64 +52,45 @@ export function SpecialistCard({ specialist, compact = false }: SpecialistCardPr
   return (
     <Link href={`/specialist/${specialist.id}`}>
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden card-hover">
-        {/* Header with gradient */}
-        <div className="gradient-primary p-4 pb-8 relative">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                <img
-                  src={specialist.avatar}
-                  alt={specialist.name}
-                  className="w-16 h-16 rounded-2xl object-cover border-2 border-white/30 bg-white/20"
-                />
-                {specialist.isAvailable && (
-                  <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white pulse-dot" />
-                )}
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <h3 className="font-bold text-white text-base">{specialist.name}</h3>
-                  {specialist.verified && (
-                    <CheckCircle className="w-4 h-4 text-blue-200" />
-                  )}
-                </div>
-                <p className="text-white/80 text-xs mt-0.5">
-                  {specialist.yearsExperience} years experience
-                </p>
-                <div className="flex items-center gap-1 mt-1">
-                  <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                  <span className="text-white text-xs font-semibold">{specialist.rating}</span>
-                  <span className="text-white/70 text-xs">({specialist.reviewCount})</span>
-                </div>
-              </div>
+        {/* Header */}
+        <div className="flex items-center gap-4 p-4">
+          <div className="relative flex-shrink-0">
+            <img
+              src={specialist.avatar}
+              alt={specialist.name}
+              className="w-16 h-16 rounded-2xl object-cover bg-pink-50"
+            />
+            {specialist.isAvailable && (
+              <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white pulse-dot" />
+            )}
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-1.5">
+              <h3 className="font-bold text-gray-900 text-base truncate">{specialist.name}</h3>
+              {specialist.verified && (
+                <CheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0" />
+              )}
             </div>
-            <div className="text-right">
-              <p className="text-white/70 text-xs">From</p>
-              <p className="text-white font-bold text-lg">
-                {formatCurrency(specialist.priceRange.min)}
-              </p>
+            <p className="text-sm text-gray-500 truncate mt-0.5">
+              {specialist.specialties.join(" · ")}
+            </p>
+            <div className="flex items-center gap-2 mt-1.5">
+              <StarRating rating={specialist.rating} size="sm" showValue />
+              <span className="text-gray-300">·</span>
+              <span className="text-xs text-gray-400">{specialist.yearsExperience} yrs exp</span>
             </div>
+          </div>
+          <div className="text-right flex-shrink-0">
+            <p className="text-gray-400 text-xs">From</p>
+            <p className="text-pink-600 font-bold text-lg">
+              {formatCurrency(specialist.priceRange.min)}
+            </p>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-4 -mt-4">
-          {/* Specialties */}
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {specialist.specialties.slice(0, 3).map((specialty) => (
-              <Badge key={specialty} variant="default" size="sm">
-                {specialty}
-              </Badge>
-            ))}
-            {specialist.specialties.length > 3 && (
-              <Badge variant="outline" size="sm">
-                +{specialist.specialties.length - 3}
-              </Badge>
-            )}
-          </div>
-
-          {/* Services preview */}
-          <div className="flex gap-2 mb-3 overflow-x-auto pb-1">
+        {/* Services preview */}
+        <div className="px-4 pb-3">
+          <div className="flex gap-2 overflow-x-auto pb-1">
             {specialist.services.slice(0, 3).map((service) => (
               <div
                 key={service.id}
@@ -125,24 +105,6 @@ export function SpecialistCard({ specialist, compact = false }: SpecialistCardPr
                 </p>
               </div>
             ))}
-          </div>
-
-          {/* Location & availability */}
-          <div className="flex items-center justify-between text-xs text-gray-500">
-            <div className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-pink-400" />
-              <span>{specialist.location.city}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-purple-400" />
-              <span
-                className={
-                  specialist.isAvailable ? "text-green-600 font-medium" : "text-gray-400"
-                }
-              >
-                {specialist.isAvailable ? "Available today" : "Not available"}
-              </span>
-            </div>
           </div>
         </div>
       </div>

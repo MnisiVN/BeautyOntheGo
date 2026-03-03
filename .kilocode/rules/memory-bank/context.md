@@ -19,6 +19,7 @@ The app is a complete beauty specialist booking platform called **GlowUp** - "Be
 - [x] Reviews & ratings
 - [x] Zustand state management
 - [x] Mock data with 6 specialists, bookings, reviews, notifications
+- [x] UI improvements: reduced cluttered look, better spacing, cleaner layouts
 
 ## App Architecture
 
