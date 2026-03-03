@@ -20,6 +20,7 @@ The app is a complete beauty specialist booking platform called **GlowUp** - "Be
 - [x] Zustand state management
 - [x] Mock data with 6 specialists, bookings, reviews, notifications
 - [x] UI improvements: reduced cluttered look, better spacing, cleaner layouts
+- [x] Specialist card gaps: added mb-3/mb-4 margins and increased home page spacing to space-y-6
 
 ## App Architecture
 
@@ -92,3 +93,4 @@ src/
 | Date | Changes |
 |------|---------|
 | 2026-02-27 | Built complete GlowUp beauty booking app from scratch |
+| 2026-03-03 | Fixed specialist card spacing - increased gaps in featured cards to space-y-6 |
