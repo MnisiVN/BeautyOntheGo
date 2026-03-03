@@ -51,9 +51,9 @@ export function SpecialistCard({ specialist, compact = false }: SpecialistCardPr
 
   return (
     <Link href={`/specialist/${specialist.id}`}>
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden card-hover mb-4">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden card-hover mb-4 p-4">
         {/* Header */}
-        <div className="flex items-center gap-4 p-4">
+        <div className="flex items-center gap-4">
           <div className="relative flex-shrink-0">
             <img
               src={specialist.avatar}
