@@ -155,7 +155,7 @@ export default function HomePage() {
               See all <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {filteredSpecialists.map((specialist) => (
               <SpecialistCard key={specialist.id} specialist={specialist} />
             ))}
