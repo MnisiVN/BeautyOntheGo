@@ -118,7 +118,7 @@ export default function MapPage() {
           </div>
         </div>
       ) : (
-        <div className="flex-1 overflow-y-auto px-5 py-4 pb-24 space-y-3">
+        <div className="flex-1 overflow-y-auto px-5 py-4 pb-24">
           <p className="text-sm text-gray-500 mb-2">
             <span className="font-semibold text-gray-900">{filteredSpecialists.length}</span> specialists found
           </p>

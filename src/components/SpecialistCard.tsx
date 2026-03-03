@@ -15,7 +15,7 @@ export function SpecialistCard({ specialist, compact = false }: SpecialistCardPr
   if (compact) {
     return (
       <Link href={`/specialist/${specialist.id}`}>
-        <div className="flex items-center gap-3 p-3 bg-white rounded-2xl shadow-sm border border-gray-100 card-hover">
+        <div className="flex items-center gap-3 p-3 bg-white rounded-2xl shadow-sm border border-gray-100 card-hover mb-3">
           <div className="relative flex-shrink-0">
             <img
               src={specialist.avatar}
@@ -51,7 +51,7 @@ export function SpecialistCard({ specialist, compact = false }: SpecialistCardPr
 
   return (
     <Link href={`/specialist/${specialist.id}`}>
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden card-hover">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden card-hover mb-4">
         {/* Header */}
         <div className="flex items-center gap-4 p-4">
           <div className="relative flex-shrink-0">
